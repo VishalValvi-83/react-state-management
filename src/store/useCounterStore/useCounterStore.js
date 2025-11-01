@@ -8,4 +8,14 @@ const useCounterStore = create((set) => ({
     setImage: (image) => set({ image }),
 }));
 
+export const usePersonStore = create((set) => ({
+    firstName: '',
+    lastName: '',
+    updateLastName: (firstName, lastName) => {
+        console.log(firstName, lastName)
+        set(() => ({ lastName: lastName, firstName: firstName }))
+        sessionStorage.setItem('personal info ', JSON.stringify({ firstName, lastName }))
+    },
+}))
+
 export default useCounterStore;
